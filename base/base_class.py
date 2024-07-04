@@ -27,11 +27,10 @@ class Base():
 
     def assert_price_product_in_cart(self, price_product_in_cart, expected_price):
         value_price_product_in_cart = price_product_in_cart.text.replace(' ', '').replace('₽', '').strip()
-        print(f"Formatted price from cart: {value_price_product_in_cart}")  # Отладочный вывод форматированной цены
+        print(f"Formatted price from cart: {value_price_product_in_cart}")  
         assert value_price_product_in_cart == expected_price, f"Expected {expected_price}, but got {value_price_product_in_cart}"
 
     def get_price_product_in_cart(self):
-        # Убедитесь, что локатор корректен и возвращает правильный элемент
         price_element = self.driver.find_element(By.CSS_SELECTOR, '#__next > div > div > main > div > div.Grid_col__4bXWJ.Grid_col-8__Ak95g.Grid_col-laptop-7-10__dOZHB.Grid_col-tablet-12-12__wjImf > div:nth-child(2) > div > div > div.BasketItem_content__HDK_u > div.BasketItem_bottom__qPFa5 > div.BasketItem_price__7DNH8 > span > span > span')
         return price_element
 
